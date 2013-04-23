@@ -7,4 +7,5 @@ gem install rails -v 3.2.13
 rails new .
 # No need to bundle install
 add thin to gemset
+add haml to gemset
 
