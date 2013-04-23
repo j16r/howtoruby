@@ -83,3 +83,6 @@ Persist!
 Refresh the web browser, you should see an array of a single post object in YAML.
 Let's make it a bit prettier.
 
+## Creating posts
+
+Examine routes. Make a link to the posts#new path.
