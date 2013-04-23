@@ -2,14 +2,16 @@
 
 ## Initial setup
 
-Create directory
-echo 1.9.3-p392 > .ruby-version
-echo yab > .ruby-gemsets
-gem install rails -v 3.2.13
-rails new .
-# No need to bundle install
-add thin to gemset
-add haml to gemset
+Create directory to store your project in.
+Execute in a shell:
+
+    echo 1.9.3-p392 > .ruby-version
+    echo yab > .ruby-gemsets
+    gem install rails -v 3.2.13
+    rails new .
+    # No need to bundle install
+    add thin to gemset
+    add haml to gemset
 
 ## Routing and the first controller
 
@@ -40,8 +42,43 @@ Output the posts in the view:
 
     = debug @posts
 
-rake db:migrate
+In a shell: `rake db:migrate`
 (Observe beautiful but deadly YAML).
 
+Add some fields to the post:
 
+    rails generate migration AddFieldsToPost
+
+Add to the new migration:
+
+    change_table :posts do |table|
+      table.string :title, null: false, default: ''
+      table.string :body
+    end
+
+rake db:migrate
+
+Add attr_accessible to Post:
+  
+    attr_accessible :title, :body
+
+Then run `rails c` to enter the console.
+
+Create a new post:
+
+    Post.new(title: 'Chunky Bacon', body: 'Bacon is a vegetable')
+
+You should see:
+
+    => #<Post id: nil, created_at: nil, updated_at: nil, title: "Chunky Bacon", body: "Bacon is a vegetable">
+
+Save that to a variable:
+
+   post = _
+
+Persist!
+
+   post.save
+
+Refresh the web browser, you should see an array of a single post object in YAML.
 
