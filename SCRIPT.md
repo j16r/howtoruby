@@ -4,12 +4,7 @@ Create directory
 echo 1.9.3-p392 > .ruby-version
 echo yab > .ruby-gemsets
 gem install rails -v 3.2.13
+rails new .
+# No need to bundle install
+add thin to gemset
 
-Add to Gemfile:
-
-    source 'https://rubygems.org'
-
-    gem 'rails', '3.2.13'
-
-Run `bundle`
-Create the rails project
