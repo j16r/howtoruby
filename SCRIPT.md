@@ -81,4 +81,5 @@ Persist!
    post.save
 
 Refresh the web browser, you should see an array of a single post object in YAML.
+Let's make it a bit prettier.
 
