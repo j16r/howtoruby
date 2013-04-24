@@ -87,3 +87,9 @@ Let's make it a bit prettier.
 
 Examine routes. Make a link to the posts#new path.
 Create a form to accept the post detail.
+Add a rudimentary create action:
+
+    def create
+      @post = Post.create(params[:post])
+      redirect_to posts_path
+    end
