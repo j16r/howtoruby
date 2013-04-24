@@ -86,3 +86,4 @@ Let's make it a bit prettier.
 ## Creating posts
 
 Examine routes. Make a link to the posts#new path.
+Create a form to accept the post detail.
