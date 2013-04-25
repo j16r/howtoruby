@@ -99,3 +99,14 @@ Add a rudimentary create action:
 Add validations to post model.
 
     validates :title, :body, presence: true
+
+Redirect only if saving succeeds:
+
+    @post = Post.new(params[:post])
+    if @post.save
+      redirect_to posts_path
+    else
+      flash[:notice] = 'No way buddy!'
+      render action: 'new'
+    end
+

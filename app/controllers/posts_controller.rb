@@ -8,7 +8,12 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.create(params[:post])
-    redirect_to posts_path
+    @post = Post.new(params[:post])
+    if @post.save
+      redirect_to posts_path
+    else
+      flash[:notice] = 'No way buddy!'
+      render action: 'new'
+    end
   end
 end
