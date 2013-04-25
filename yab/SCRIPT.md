@@ -126,3 +126,12 @@ Add a default route:
 
     root to: 'posts#index'
 
+## Advanced topics
+
+Helpers
+Decorators (draper)
+Responders
+Asset pipeline
+Form models
+Filters
+Devise / CanCan authentication and authorization
