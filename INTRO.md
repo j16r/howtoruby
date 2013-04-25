@@ -165,7 +165,8 @@ This is a very simple script of topics to discuss while using IRB to introduce R
 
 ## Exceptions:
 
-    1 / 0 => ZeroDivisionError
+    1 / 0
+    => ZeroDivisionError
 
 ## Raise an exception:
 
@@ -192,6 +193,16 @@ _DON'T DO THIS:_
     begin
     rescue => e
     ensure
-    @x = 1
-    # This is never returned
+      @x = 1
+      # This is never returned
     end
+
+## Advanced:
+
+Mixins (include vs extend)
+Reflection (self.class, method, instance_methods)
+Cracking classes
+Method missing/method defined
+Meta-programming with instance_eval/define_method
+Alias method
+Lazy enumerators (new!)
