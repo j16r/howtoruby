@@ -113,3 +113,8 @@ Redirect only if saving succeeds:
 Make sure to initialize the post from the user entered data in the new action:
 
     @post = Post.new(params[:post])
+
+Show the flash notice:
+
+    - if flash[:notice]
+      %h3{style: 'color: red'}= flash[:notice]
