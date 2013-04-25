@@ -1,23 +1,26 @@
+# Intro to Ruby
 
-Literals
+This is a very simple script of topics to discuss while using IRB to introduce Ruby.
+
+## Literals
 
   1 => Fixnum
   '' => String
   "" => Interpolated strings
 
-Methods
+## Methods
 
   puts 'x'
   1 + 1
   2 == 3
 
-Logic
+## Logic
 
   if 1 == 2
     puts 1
   end
 
-Everything is an expression
+## Everything is an expression
 
   if 1 == 2
     10
@@ -27,26 +30,26 @@ Everything is an expression
 
   => 13
 
-Variables
+## Variables
 
   x = 1
   puts x
   y = "Hello"
   puts y
 
-Collections
+## Collections
 
   x = [1, 2, 3]
   x[0]
   y = {x: 1}
   y[:x]
 
-Enumeration
+## Enumeration
 
   x.each {|a| puts a}
   y.each {|key, value| puts value}
 
-More enumeration methods
+## More enumeration methods
 
   z = [1, 2, 3]
   total = 0
@@ -54,20 +57,20 @@ More enumeration methods
   z.inject {|sum, value| sum + value}
   z.inject(&:+) # Kestrels!
 
-Everything is an object
+## Everything is an object
 
   x.methods
   x.methods - Object.methods
   x.methods.grep /each/
 
-Defining objects
+## Defining objects
 
   class MyClass
   end
 
   MyConstant = Class.new(RuntimeError)
 
-Methods
+## Methods
 
   def mymethod
   end
@@ -76,7 +79,7 @@ Methods
     puts 'X'
   end
 
-Attr accessors
+## Attr accessors
 
   attr_reader :x
   attr :x
@@ -85,43 +88,43 @@ Attr accessors
     @x
   end
 
-Saving state
+## Saving state
 
   def mymethod
     @x = 1
   end
 
-Arguments
+## Arguments
 
   def save(y)
     @y = 1
   end
 
-Splat:
+## Splat:
 
   def save(\*args)
     args[0]
   end
 
-Last argument as hash shorthand:
+## Last argument as hash shorthand:
 
   def save(x)
 
   save(x: 1, y: 2)
 
-Optional arguments (not native ruby):
+## Optional arguments (not native ruby):
 
   def x, options = {}
     options = {
       default: 1}.merge(options)
 
-Constructor:
+## Constructor:
 
   def initialize(x, y)
     @x, @y = x, y
   end
 
-Class methods:
+## Class methods:
 
   def self.x
 
@@ -133,12 +136,12 @@ Class methods:
 
   end
 
-Private/protected methods:
+## Private/protected methods:
 
   private
   protected
 
-Blocks
+## Blocks
 
   def x
     puts "Before"
@@ -149,26 +152,26 @@ Blocks
   x do
   end
 
-Passing blocks down the chain
+## Passing blocks down the chain
 
   def x(&block)
     y(&block)
   end
 
-Passing arguments to blocks:
+## Passing arguments to blocks:
 
   x do |arg1|
     ...
 
-Exceptions:
+## Exceptions:
 
   1 / 0 => ZeroDivisionError
 
-Raise an exception:
+## Raise an exception:
 
   raise ArgumentError.new("The price is wrong!")
 
-Rescuing exceptions:
+## Rescuing exceptions:
 
   begin
     # exceptional code
@@ -180,11 +183,11 @@ _DON'T DO THIS:_
 
   rescue Exception
 
-Nice shorthand for creating app exceptions
+## Nice shorthand for creating app exceptions
 
   InvalidUserError = Class.new(RuntimeError)
 
-Finally:
+## Finally:
 
   begin
   rescue => e
@@ -192,6 +195,3 @@ Finally:
     @x = 1
     # This is never returned
   end
-
-
-
