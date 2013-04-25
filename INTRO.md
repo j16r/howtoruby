@@ -4,194 +4,194 @@ This is a very simple script of topics to discuss while using IRB to introduce R
 
 ## Literals
 
-  1 => Fixnum
-  '' => String
-  "" => Interpolated strings
+    1 => Fixnum
+    '' => String
+    "" => Interpolated strings
 
 ## Methods
 
-  puts 'x'
-  1 + 1
-  2 == 3
+    puts 'x'
+    1 + 1
+    2 == 3
 
 ## Logic
 
-  if 1 == 2
-    puts 1
-  end
+    if 1 == 2
+      puts 1
+    end
 
 ## Everything is an expression
 
-  if 1 == 2
-    10
-  else
-    13
-  end
+    if 1 == 2
+      10
+    else
+      13
+    end
 
   => 13
 
 ## Variables
 
-  x = 1
-  puts x
-  y = "Hello"
-  puts y
+    x = 1
+    puts x
+    y = "Hello"
+    puts y
 
 ## Collections
 
-  x = [1, 2, 3]
-  x[0]
-  y = {x: 1}
-  y[:x]
+    x = [1, 2, 3]
+    x[0]
+    y = {x: 1}
+    y[:x]
 
 ## Enumeration
 
-  x.each {|a| puts a}
-  y.each {|key, value| puts value}
+    x.each {|a| puts a}
+    y.each {|key, value| puts value}
 
 ## More enumeration methods
 
-  z = [1, 2, 3]
-  total = 0
-  z.each {|value| total += value}
-  z.inject {|sum, value| sum + value}
-  z.inject(&:+) # Kestrels!
+    z = [1, 2, 3]
+    total = 0
+    z.each {|value| total += value}
+    z.inject {|sum, value| sum + value}
+    z.inject(&:+) # Kestrels!
 
 ## Everything is an object
 
-  x.methods
-  x.methods - Object.methods
-  x.methods.grep /each/
+    x.methods
+    x.methods - Object.methods
+    x.methods.grep /each/
 
 ## Defining objects
 
-  class MyClass
-  end
+    class MyClass
+    end
 
-  MyConstant = Class.new(RuntimeError)
+    MyConstant = Class.new(RuntimeError)
 
 ## Methods
 
-  def mymethod
-  end
+    def mymethod
+    end
 
-  def mymethod
-    puts 'X'
-  end
+    def mymethod
+      puts 'X'
+    end
 
 ## Attr accessors
 
-  attr_reader :x
-  attr :x
+    attr_reader :x
+    attr :x
 
-  def x
+    def x
     @x
-  end
+    end
 
 ## Saving state
 
-  def mymethod
+    def mymethod
     @x = 1
-  end
+    end
 
 ## Arguments
 
-  def save(y)
+    def save(y)
     @y = 1
-  end
+    end
 
 ## Splat:
 
-  def save(\*args)
-    args[0]
-  end
+    def save(\*args)
+      args[0]
+    end
 
 ## Last argument as hash shorthand:
 
-  def save(x)
+    def save(x)
 
-  save(x: 1, y: 2)
+    save(x: 1, y: 2)
 
 ## Optional arguments (not native ruby):
 
-  def x, options = {}
-    options = {
-      default: 1}.merge(options)
+    def x, options = {}
+      options = {
+        default: 1}.merge(options)
 
 ## Constructor:
 
-  def initialize(x, y)
+    def initialize(x, y)
     @x, @y = x, y
-  end
+    end
 
 ## Class methods:
 
-  def self.x
+    def self.x
 
-  def MyClass.x
+    def MyClass.x
 
-  extend << self
+    extend << self
 
-    def x
+      def x
 
-  end
+    end
 
 ## Private/protected methods:
 
-  private
-  protected
+    private
+    protected
 
 ## Blocks
 
-  def x
-    puts "Before"
-    yield
-    puts "After"
-  end
+    def x
+      puts "Before"
+      yield
+      puts "After"
+    end
 
-  x do
-  end
+    x do
+    end
 
 ## Passing blocks down the chain
 
-  def x(&block)
-    y(&block)
-  end
+    def x(&block)
+      y(&block)
+    end
 
 ## Passing arguments to blocks:
 
-  x do |arg1|
+    x do |arg1|
     ...
 
 ## Exceptions:
 
-  1 / 0 => ZeroDivisionError
+    1 / 0 => ZeroDivisionError
 
 ## Raise an exception:
 
-  raise ArgumentError.new("The price is wrong!")
+    raise ArgumentError.new("The price is wrong!")
 
 ## Rescuing exceptions:
 
-  begin
+    begin
     # exceptional code
-  rescue => e
-    puts e
-  end
+    rescue => e
+      puts e
+    end
 
 _DON'T DO THIS:_
 
-  rescue Exception
+    rescue Exception
 
 ## Nice shorthand for creating app exceptions
 
-  InvalidUserError = Class.new(RuntimeError)
+    InvalidUserError = Class.new(RuntimeError)
 
 ## Finally:
 
-  begin
-  rescue => e
-  ensure
+    begin
+    rescue => e
+    ensure
     @x = 1
     # This is never returned
-  end
+    end
