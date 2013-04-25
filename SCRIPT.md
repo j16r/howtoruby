@@ -93,3 +93,9 @@ Add a rudimentary create action:
       @post = Post.create(params[:post])
       redirect_to posts_path
     end
+
+## Validations and redirection
+
+Add validations to post model.
+
+    validates :title, :body, presence: true
