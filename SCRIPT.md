@@ -110,3 +110,6 @@ Redirect only if saving succeeds:
       render action: 'new'
     end
 
+Make sure to initialize the post from the user entered data in the new action:
+
+    @post = Post.new(params[:post])
