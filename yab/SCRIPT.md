@@ -118,3 +118,11 @@ Show the flash notice:
 
     - if flash[:notice]
       %h3{style: 'color: red'}= flash[:notice]
+
+## Default route
+
+Delete public/index.html
+Add a default route:
+
+    root to: 'posts#index'
+
